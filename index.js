@@ -1,34 +1,7 @@
-function createCard(text, index) {
-    const divCard = document.createElement('div')
-    divCard.classList.add('divCard', 'card', 'passiveCard')
+import { createCard } from './.vscode/modules/createCard.js'
+import { createButton } from './.vscode/modules/createButton.js'
+import { random } from './.vscode/modules/random.js'
 
-    const p = document.createElement('p')
-    p.classList.add('textCard')
-    p.textContent = text
-
-    divCard.id = String(index)
-    divCard.append(p)
-
-    return {
-        divCard,
-        p
-    }
-}
-
-function createButton(text) {
-    const button = document.createElement('button')
-    button.id = 'restartButton'
-    button.textContent = text
-
-    return button
-}
-
-function random(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]]
-    }
-}
 
 let firstCard = null
 let secondCard = null
@@ -63,7 +36,6 @@ function createGame() {
 
         container.append(rowDiv)
     }
-    
     let restartBtn = document.getElementById('restartButton')
     if (restartBtn) restartBtn.remove()
 
